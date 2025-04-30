@@ -8,13 +8,19 @@
 function sumValues(num1, num2, add) {
     if (add) {
         let result = 0;
+        if (typeof num1 !== 'number') {
+            return false;
+        }
+        if (typeof num2 !== 'number'){
+            return false;
+        }
 
         result = num1 + num2;
 
         return result;
     }
     else {
-        return !add;
+        return false;
     }
 }
 
@@ -25,6 +31,12 @@ function sumValues(num1, num2, add) {
  * @returns An array of each price's new price, after the discount is applied. Or false, if prices array is empty.
  */
 function discountPrices(prices, discount) {
+    if (Array.isArray(prices) == false) {
+        return false;
+    }
+    if (typeof discount !== 'number'){
+        return false;
+    }
     if(prices.length == 0){
         return false;
     }
